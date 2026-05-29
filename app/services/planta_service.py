@@ -41,3 +41,31 @@ def eliminar_planta(db: Session, planta_id: int):
     return {
         "mensaje": "Planta no encontrada"
     }
+
+    # actualizar planta por id
+def actualizar_planta(
+    db: Session,
+    planta_id: int,
+    datos
+):
+
+    planta = db.query(Planta).filter(
+        Planta.id == planta_id
+    ).first()
+
+    if planta:
+
+        planta.nombre = datos.nombre
+        planta.nombre_cientifico = datos.nombre_cientifico
+        planta.color = datos.color
+        planta.descripcion = datos.descripcion
+        planta.url_img = datos.url_img
+
+        db.commit()
+        db.refresh(planta)
+
+        return planta
+
+    return {
+        "mensaje": "Planta no encontrada"
+    } 

@@ -10,9 +10,10 @@ from app.schemas.planta_schema import (
 )
 
 from app.services.planta_service import (
-    obtener_plantas,
+       obtener_plantas,
     crear_planta,
-    eliminar_planta
+    eliminar_planta,
+    actualizar_planta
 )
 
 router = APIRouter(
@@ -51,3 +52,16 @@ def borrar_planta(
     db: Session = Depends(get_db)
 ):
     return eliminar_planta(db, planta_id)
+
+# PUT
+@router.put("/{planta_id}")
+def editar_planta(
+    planta_id: int,
+    planta: PlantaCreate,
+    db: Session = Depends(get_db)
+):
+    return actualizar_planta(
+        db,
+        planta_id,
+        planta
+    )
