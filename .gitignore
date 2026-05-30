@@ -1,31 +1,20 @@
 
-# Entorno virtual
-venv/
-.venv/
-env/
 
 # Caché de Python
 __pycache__/
 *.pyc
-*.pyo
 
-# Base de datos SQLite
-*.db
+# Entornos virtuales
+venv/
+.venv/
+env/
 
 # Variables de entorno
 .env
 
-# Archivos de VS Code
+# Configuración de VS Code
 .vscode/
 
 # Archivos del sistema
 .DS_Store
 Thumbs.db
-
-__pycache__/
-*.pyc
-*.db
-.env
-.vscode/
-venv/
-.venv/
